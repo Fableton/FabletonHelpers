@@ -12,6 +12,7 @@
     <RepositoryUrl>https://github.com/Fableton/FabletonHelpers</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Helpers,Utils,Extension</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
