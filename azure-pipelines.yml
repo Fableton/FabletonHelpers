@@ -48,4 +48,4 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'custom'
-    custom: 'nuget push FabletonHelpers.$(Build.BuildNumber).nupkg --api-key oy2obbpkkyg26sdds4zqbqwu4dm4jrterjpnyurbp42ozi --source https://api.nuget.org/v3/index.json'
+    custom: 'nuget push FabletonHelpers.$(Build.BuildNumber).nupkg --api-key $(ApiKey) --source https://api.nuget.org/v3/index.json'
