@@ -41,7 +41,10 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**\FabletonHelpers.csproj'
-    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byPrereleaseNumber'
+    majorVersion: '1'
+    minorVersion: '0'
+    patchVersion: '0'
 
 - task: PublishPipelineArtifact@1
   inputs:
