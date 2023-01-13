@@ -20,14 +20,19 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
+    projects: 'FabletonHelpers.csproj'
+    feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
+    projects: 'FabletonHelpers.csproj'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
+    projects: 'TestProject.csproj'
+    arguments: '--no-build --logger "trx;LogFileName=tests-log.trx'
 
 - task: PublishTestResults@2
   inputs:
@@ -36,5 +41,11 @@ steps:
 
 - task: DotNetCoreCLI@2
   inputs:
-    command: 'publish'
-    publishWebProjects: true
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'byBuildNumber'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'custom'
+    custom: 'nuget push FabletonHelpers.${{ BuildNumber }}.nupkg --api-key oy2obbpkkyg26sdds4zqbqwu4dm4jrterjpnyurbp42ozi --source https://api.nuget.org/v3/index.json'
