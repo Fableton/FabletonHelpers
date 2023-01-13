@@ -26,28 +26,22 @@ steps:
     projects: '**\FabletonHelpers.csproj'
 
 - task: DotNetCoreCLI@2
-  displayName: Build Nugget 
-  inputs:
-    command: 'build'
-    projects: '**\FabletonHelpers.csproj'
-
-- task: DotNetCoreCLI@2
   displayName: Test
   inputs:
     command: 'test'
-    projects: '**\*Test*.csproj'
-    arguments: '--no-build --collect "Code coverage"'
+    projects: '**\FabletonHelpersTest.csproj'
+    arguments: '--collect "Code coverage"'
 
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
     testResultsFiles: '**/*.trx'
+
 - task: DotNetCoreCLI@2
   inputs:
-    command: publish
-    publishWebProjects: True
-    arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
-    zipAfterPublish: True
+    command: 'pack'
+    packagesToPack: '**\FabletonHelpers.csproj'
+    versioningScheme: 'byBuildNumber'
 
 - task: PublishPipelineArtifact@1
   inputs:
