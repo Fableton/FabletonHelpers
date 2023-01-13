@@ -20,7 +20,13 @@ steps:
     restoreSolution: '$(solution)'
 
 - task: DotNetCoreCLI@2
-  displayName: Build 
+  displayName: Build Nugget 
+  inputs:
+    command: 'build'
+    projects: '**\FabletonHelpers.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: Build Nugget 
   inputs:
     command: 'build'
     projects: '**\FabletonHelpers.csproj'
@@ -30,9 +36,8 @@ steps:
   inputs:
     command: 'test'
     projects: '**\*Test*.csproj'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    arguments: '--no-build --collect "Code coverage"'
 
-- script: dotnet test <test-project> --logger trx --collect "Code coverage"
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
