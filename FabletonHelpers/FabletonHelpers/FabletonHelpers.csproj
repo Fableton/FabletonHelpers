@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>Util Helpers by Fableton</Title>
+    <Authors>Fableton</Authors>
+    <Company />
+    <Description>Utility helpers to ease development</Description>
+    <Copyright>If use in comercial porpuse send a twit to @Fableton_ that you are using it and accept that your personal/comapany name to be in the main page of the nugget description.</Copyright>
+    <RepositoryUrl>https://github.com/Fableton/FabletonHelpers</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Helpers,Utils,Extension</PackageTags>
+  </PropertyGroup>
+
+</Project>
