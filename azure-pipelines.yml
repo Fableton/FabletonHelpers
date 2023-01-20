@@ -46,7 +46,8 @@ steps:
     packagesToPack: '**\FabletonHelpers.csproj'
     includesymbols: true
     includesource: true
-    versioningScheme: 'byBuildNumber'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'Build.BuildNumber'
     buildProperties: 'SymbolPackageFormat=snupkg'
 
 - task: PublishPipelineArtifact@1
