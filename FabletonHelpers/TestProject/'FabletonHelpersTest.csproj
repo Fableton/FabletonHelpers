@@ -22,7 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FabletonExtensions\FabletonImageSharpExtensions.csproj" />
     <ProjectReference Include="..\FabletonHelpers\FabletonHelpers.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\ImageTest1.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

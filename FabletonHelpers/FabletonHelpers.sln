@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabletonHelpers", "FabletonHelpers\FabletonHelpers.csproj", "{8915DFAF-9F02-4428-A17A-8EBFA59E5F65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabletonHelpers", "FabletonHelpers\FabletonHelpers.csproj", "{8915DFAF-9F02-4428-A17A-8EBFA59E5F65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "'FabletonHelpersTest", "TestProject\'FabletonHelpersTest.csproj", "{AE0E7237-AEFB-4A79-98A2-1424C61DBA81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "'FabletonHelpersTest", "TestProject\'FabletonHelpersTest.csproj", "{AE0E7237-AEFB-4A79-98A2-1424C61DBA81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabletonImageSharpExtensions", "FabletonExtensions\FabletonImageSharpExtensions.csproj", "{DFCC8DA8-AD3E-43D1-94E2-F75860DE21AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AE0E7237-AEFB-4A79-98A2-1424C61DBA81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AE0E7237-AEFB-4A79-98A2-1424C61DBA81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AE0E7237-AEFB-4A79-98A2-1424C61DBA81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCC8DA8-AD3E-43D1-94E2-F75860DE21AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCC8DA8-AD3E-43D1-94E2-F75860DE21AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCC8DA8-AD3E-43D1-94E2-F75860DE21AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCC8DA8-AD3E-43D1-94E2-F75860DE21AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
