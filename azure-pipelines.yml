@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Debug'
-  project: '**/*.csproj;!**/*.Tests.csproj'
+  project: '**/*.csproj'
 
 steps:
 
@@ -44,7 +44,7 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '$(project)'
+    packagesToPack: '$(project)!**/*.Tests.csproj'
     includesymbols: true
     includesource: true
     versioningScheme: 'byEnvVar'
