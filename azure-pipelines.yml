@@ -11,7 +11,7 @@ pool:
 
 variables:
   buildConfiguration: 'Debug'
-  project: '**\FabletonHelpers.csproj'
+  project: '**\*.csproj'
 
 steps:
 
@@ -22,7 +22,7 @@ steps:
     feedsToUse: 'select'
 
 - task: DotNetCoreCLI@2
-  displayName: Build Nugget 
+  displayName: Build Projects 
   inputs:
     command: 'build'
     projects: '$(project)'
