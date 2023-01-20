@@ -37,8 +37,9 @@ steps:
 
 - task: PublishTestResults@2
   inputs:
-    testRunner: VSTest
+    testResultsFormat: 'VSTest'
     testResultsFiles: '**/*.trx'
+    searchFolder: '$(Agent.TempDirectory)'
 
 - task: DotNetCoreCLI@2
   inputs:
