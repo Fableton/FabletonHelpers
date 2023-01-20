@@ -10,29 +10,47 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  buildConfiguration: 'Debug'
+  project: '**\FabletonHelpers.csproj'
 
 steps:
-- task: NuGetToolInstaller@1
 
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   inputs:
-    restoreSolution: '$(solution)'
+    command: 'restore'
+    projects: '$(project)'
+    feedsToUse: 'select'
 
-- task: VSBuild@1
+- task: DotNetCoreCLI@2
+  displayName: Build Nugget 
   inputs:
-    solution: '$(solution)'
-    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'build'
+    projects: '$(project)'
+    arguments: '--configuration $(buildConfiguration)'
 
-- task: VSTest@2
+- task: DotNetCoreCLI@2
+  displayName: Test
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*Test*.dll
-    searchFolder: '$(System.DefaultWorkingDirectory)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'test'
+    projects: '**\FabletonHelpersTest.csproj'
+    arguments: '--collect "Code coverage"'
+
+- task: PublishTestResults@2
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '**\FabletonHelpers.csproj'
+    includesymbols: true
+    includesource: true
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'Build.BuildNumber'
+    buildProperties: 'SymbolPackageFormat=snupkg'
+
+- task: PublishPipelineArtifact@1
+  inputs:
+    targetPath: '$(Build.ArtifactStagingDirectory)' 
+    artifactName: 'Package'
